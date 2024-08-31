@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.daggerHilt)
+    alias(libs.plugins.kotlinKapt)
 }
 
 android {
@@ -50,17 +52,30 @@ android {
 }
 
 dependencies {
+    // Androidx Compose ( BOM )
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    // Androidx ( Not In Compose BOM )
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
+    // Retrofit ( HTTP )
+    implementation(libs.retrofit2.core)
+    implementation(libs.retrofit2.converter.gson)
+
+    // ---- Testing ---- //
 
     testImplementation(libs.junit)
 
@@ -68,4 +83,9 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
