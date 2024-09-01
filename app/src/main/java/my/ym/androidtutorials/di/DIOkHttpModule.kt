@@ -52,7 +52,7 @@ object DIOkHttpModule {
             val currentBaseUrl = sharedPrefsGeneral.getBaseUrl()
 
             builder.url(
-                url.replace(MyAppConstants.API.BASE_URL_DUMMY_PLACEHOLDER, currentBaseUrl)
+                url.replaceFirst(MyAppConstants.API.BASE_URL_DUMMY_PLACEHOLDER, currentBaseUrl)
             )
 
             chain.proceed(builder.build())
