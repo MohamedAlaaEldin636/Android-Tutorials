@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AndroidTutorials</string>
     <string name="home">Home</string>
+    <string name="retrofit_dynamic_base_url">Retrofit Dynamic Base Url</string>
 </resources>

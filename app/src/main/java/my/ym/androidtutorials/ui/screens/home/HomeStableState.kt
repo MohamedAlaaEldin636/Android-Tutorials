@@ -1,4 +1,4 @@
-package my.ym.androidtutorials.ui.screens
+package my.ym.androidtutorials.ui.screens.home
 
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue

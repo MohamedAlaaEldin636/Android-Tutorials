@@ -40,6 +40,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -74,6 +75,9 @@ dependencies {
     // Retrofit ( HTTP )
     implementation(libs.retrofit2.core)
     implementation(libs.retrofit2.converter.gson)
+
+    // OkHttp3
+    implementation(libs.okhttp3.logging.interceptor)
 
     // ---- Testing ---- //
 

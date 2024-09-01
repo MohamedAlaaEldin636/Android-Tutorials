@@ -8,6 +8,8 @@ object NavUtils {
     enum class Screen(val route: String, @StringRes val titleStringRes: Int) {
         HOME("Home", R.string.home),
 
+        RETROFIT_DYNAMIC_BASE_URL("Retrofit Dynamic Base Url", R.string.retrofit_dynamic_base_url),
+
         ;
 
         companion object {
