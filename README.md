@@ -13,7 +13,7 @@
   - [Video of the Tutorial](https://youtu.be/5D2YuoisHJk)
   - [Screen of this Tutorial in the Project](app/src/main/java/my/ym/androidtutorials/ui/screens/retrofitDynamicBaseUrl/ScreenRetrofitDynamicBaseUrl.kt)
   - Preview
-    - <img src="imagesPreviews/change_url_dynamically_using_retrofit.jpeg" width="100">
+    - <img src="imagesPreviews/change_url_dynamically_using_retrofit.jpeg" width="350">
 
 ## [License](LICENSE)
 
