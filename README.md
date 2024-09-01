@@ -4,10 +4,18 @@
 
 - This is an Android Project for simple Android tutorials.
 
-- **Note** it's currently under development so for now it's an empty project,
+- **Note** it's currently under development so for now it's has only 1 tutorial,
 **However** soon will have several tutorials, And each 1 will cover some minor problem fix.
 
-## [License](https://github.com/MohamedAlaaEldin636/Line-Text/blob/master/LICENSE) [▴](#contents-)
+## Tutorials
+
+- Change Base Url Dynamically using retrofit 
+  - [Video of the Tutorial](https://youtu.be/5D2YuoisHJk)
+  - [Screen of this Tutorial in the Project](app/src/main/java/my/ym/androidtutorials/ui/screens/retrofitDynamicBaseUrl/ScreenRetrofitDynamicBaseUrl.kt)
+  - Preview
+    - <img src="imagesPreviews/change_url_dynamically_using_retrofit.jpeg" width="100">
+
+## [License](LICENSE)
 
 ```
 Copyright © 2020 Mohamed Alaa

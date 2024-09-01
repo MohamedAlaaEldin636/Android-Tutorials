@@ -1,0 +1,1 @@
+# Changing base Url Dynamically in Android Using Retrofit
