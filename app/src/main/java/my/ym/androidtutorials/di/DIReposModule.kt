@@ -2,6 +2,11 @@ package my.ym.androidtutorials.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.datastore.core.DataStore
+import androidx.datastore.core.DataStoreFactory
+import androidx.datastore.preferences.core.PreferenceDataStoreFactory
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStoreFile
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +27,8 @@ object DIReposModule {
 
 	private const val SHARED_PREFS_KEY_FILE_NAME_OF_GENERAL_SETTINGS = "SHARED_PREFS_FILE_GENERAL_SETTINGS"
 
+	private const val DATA_STORE_KEY_FILE_NAME_OF_GENERAL_SETTINGS = "DATA_STORE_KEY_FILE_NAME_OF_GENERAL_SETTINGS"
+
 	@Provides
 	fun provideRepoAuth(
 		remoteDataSourcePosts: RemoteDataSourcePosts,
@@ -39,8 +46,8 @@ object DIReposModule {
 	@Singleton
 	@Provides
 	fun providePrefsGeneral(
-		sharedPreferences: SharedPreferences,
-	): SharedPrefsGeneral = SharedPrefsGeneralImpl(sharedPreferences)
+		dataStore: DataStore<Preferences>
+	): SharedPrefsGeneral = SharedPrefsGeneralImpl(dataStore)
 
 	@Singleton
 	@Provides
@@ -51,6 +58,16 @@ object DIReposModule {
 			SHARED_PREFS_KEY_FILE_NAME_OF_GENERAL_SETTINGS,
 			Context.MODE_PRIVATE
 		)
+	}
+
+	@Singleton
+	@Provides
+	fun provideDataStore(
+		@ApplicationContext context: Context
+	): DataStore<Preferences> {
+		return PreferenceDataStoreFactory.create {
+			context.preferencesDataStoreFile(DATA_STORE_KEY_FILE_NAME_OF_GENERAL_SETTINGS)
+		}
 	}
 
 }

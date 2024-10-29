@@ -1,24 +1,30 @@
 package my.ym.androidtutorials.data.local
 
-import android.content.SharedPreferences
-import androidx.core.content.edit
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.map
 
 class SharedPrefsGeneralImpl(
-    private val sharedPrefs: SharedPreferences,
+    private val dataStore: DataStore<Preferences>
 ) : SharedPrefsGeneral {
 
     companion object {
-        private const val KEY_BASE_URL = "KEY_BASE_URL"
+        private val keyBaseUrl = stringPreferencesKey("KEY_BASE_URL")
     }
 
-    override fun setBaseUrl(baseUrl: String) {
-        sharedPrefs.edit(true) {
-            putString(KEY_BASE_URL, baseUrl)
+    override suspend fun setBaseUrl(baseUrl: String) {
+        dataStore.edit { settings ->
+            settings[keyBaseUrl] = baseUrl
         }
     }
 
-    override fun getBaseUrl(): String {
-        return sharedPrefs.getString(KEY_BASE_URL, null).orEmpty()
+    override suspend fun getBaseUrl(): String {
+        return dataStore.data.map { preferences ->
+            preferences[keyBaseUrl]
+        }.firstOrNull().orEmpty()
     }
 
 }

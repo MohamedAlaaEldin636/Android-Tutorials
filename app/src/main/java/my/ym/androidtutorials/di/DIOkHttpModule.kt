@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.runBlocking
 import my.ym.androidtutorials.BuildConfig
 import my.ym.androidtutorials.data.local.SharedPrefsGeneral
 import my.ym.androidtutorials.utils.MyAppConstants
@@ -49,7 +50,9 @@ object DIOkHttpModule {
             val builder = request.newBuilder()
 
             // Replace base url & keep other paths & queries.
-            val currentBaseUrl = sharedPrefsGeneral.getBaseUrl()
+            val currentBaseUrl = runBlocking {
+                sharedPrefsGeneral.getBaseUrl()
+            }
 
             builder.url(
                 url.replaceFirst(MyAppConstants.API.BASE_URL_DUMMY_PLACEHOLDER, currentBaseUrl)

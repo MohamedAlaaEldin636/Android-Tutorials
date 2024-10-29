@@ -6,7 +6,7 @@ class RepoGeneralImpl(
     private val sharedPrefsGeneral: SharedPrefsGeneral,
 ) : RepoGeneral {
 
-    override fun setBaseUrl(baseUrl: String) {
+    override suspend fun setBaseUrl(baseUrl: String) {
         sharedPrefsGeneral.setBaseUrl(baseUrl)
     }
 
