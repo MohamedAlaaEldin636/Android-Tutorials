@@ -19,6 +19,7 @@ retrofit = "2.11.0"
 hiltAndroid = "1.2.0"
 daggerHilt = "2.52"
 okhttp3 = "4.12.0"
+datastore = "1.1.1"
 
 [libraries]
 # Androidx Compose ( BOM )
@@ -37,6 +38,7 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltAndroid" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
+androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
 
 # Retrofit ( HTTP )
 retrofit2-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
